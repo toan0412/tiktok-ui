@@ -11,6 +11,7 @@ import {
     faSignOut,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import Image from '~/components/Image';
@@ -20,6 +21,8 @@ import images from '~/assets';
 import Menu from '~/components/Proper/Menu';
 import { UploadIcon, MessageIcon, InboxIcon } from '~/components/Icons';
 import Search from '../Search';
+import routesConfig from '~/config/routes';
+
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
@@ -85,17 +88,32 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="Tiktok logo" />
+                <Link to={routesConfig.home} className={cx('logo-link')}>
+                    <img src={images.logo} alt="Tiktok logo" />
+                </Link>
                 <Search />
 
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
-                            <Tippy content="Upload" placement="bottom" delay={(0, 200)}>
-                                <button className={cx('action-btn')}>
-                                    <UploadIcon />
-                                </button>
-                            </Tippy>
+                            <div className={cx('upload-wrapper')}>
+                                <svg
+                                    class="css-qeydvm-StyledPlusIcon e18d3d945"
+                                    width="1em"
+                                    data-e2e=""
+                                    height="1em"
+                                    viewBox="0 0 16 16"
+                                    fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M8 2.5C7.58579 2.5 7.25 2.83579 7.25 3.25V7.25H3.25C2.83579 7.25 2.5 7.58579 2.5 8C2.5 8.41421 2.83579 8.75 3.25 8.75H7.25V12.75C7.25 13.1642 7.58579 13.5 8 13.5C8.41421 13.5 8.75 13.1642 8.75 12.75V8.75H12.75C13.1642 8.75 13.5 8.41421 13.5 8C13.5 7.58579 13.1642 7.25 12.75 7.25H8.75V3.25C8.75 2.83579 8.41421 2.5 8 2.5Z"
+                                    ></path>
+                                </svg>
+                                <span>Upload</span>
+                            </div>
                             <Tippy content="Message" placement="bottom" delay={(0, 200)}>
                                 <button className={cx('action-btn')}>
                                     <MessageIcon />
@@ -120,7 +138,7 @@ function Header() {
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
                             <Image
-                                src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/6a86b66d4bb2334fe99b1341e2a5ad84~c5_100x100.jpeg?lk3s=30310797&x-expires=1712023200&x-signature=SeQbfYoPrTSxta2ma7gRanfEEvo%3D"
+                                src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/6a86b66d4bb2334fe99b1341e2a5ad84~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1712228400&x-signature=ncmr7C56hHnPDEqklD8vVy%2Bmivs%3D"
                                 className={cx('user-avatar')}
                                 alt="Hoàng Hà Giang"
                             />
