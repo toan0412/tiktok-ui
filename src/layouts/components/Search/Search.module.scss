@@ -6,7 +6,6 @@
 .search {
     position: relative;
     display: flex;
-
     height: 46px;
     background-color: rgba(22, 24, 35, 0.06);
     padding-left: 16px;
@@ -16,6 +15,7 @@
         flex: 1;
         height: 100%;
         font-size: 1.6rem;
+        padding-right: 40px;
         color: var(--black);
         border: none;
         outline: none;
